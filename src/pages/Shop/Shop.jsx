@@ -1,10 +1,11 @@
+import Container from "../../components/Container/Container";
 
 
 const Shop = () => {
     return (
-        <div>
+        <Container>
             <h1>Shop here</h1>
-        </div>
+        </Container>
     );
 };
 
