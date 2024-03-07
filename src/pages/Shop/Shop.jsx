@@ -4,34 +4,32 @@ import useAxios from "../../hooks/useAxios";
 import { ProfileCard } from "./ShoeCard";
 import Category from "./SideVar/Category";
 import { useState } from "react";
+import Color from "./SideVar/Color";
 
 const Shop = () => {
-    const [category,setCategory] = useState('')
+    const [category, setCategory] = useState('');
+    const [color, setColor] = useState('');
     const axios = useAxios();
     const { data: shoes } = useQuery({
-        queryKey: ['shoes',category],
-        queryFn: async () => axios.get(`/shoes?category=${category}`)
+        queryKey: ['shoes', category, color],
+        queryFn: async () => axios.get(`/shoes?category=${category}&color=${color}`)
     })
 
-    console.log(category);
+    console.log(color);
 
     const handleChange = (e) => {
         setCategory(e.target.value)
+    }
+    const handleColorChange = (e) => {
+        setColor(e.target.value)
     }
 
     return (
         <Container>
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 mt-8">
                 <div className="border">
-                    {/* category */}
-                    <div className="">
-                        <Category handleChange={handleChange} />
-
-                    </div>
-                    {/* Price */}
-                    <div className=""></div>
-                    {/* Colors */}
-                    <div className=""></div>
+                    <Category handleChange={handleChange} />
+                    <Color handleColorChange={handleColorChange} />
                 </div>
                 {/* Cards */}
                 <div className="col-span-3">
