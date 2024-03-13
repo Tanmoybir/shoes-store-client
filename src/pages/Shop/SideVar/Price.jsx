@@ -10,22 +10,22 @@ const Price = ({handlePriceChange}) => {
             </div>
             {/* Black */}
             <div className="ml-4">
-                <input onChange={handlePriceChange} value={"black"} id="Black" type="radio" name="price" />
+                <input onChange={handlePriceChange} value={50} id="Black" type="radio" name="price" />
                 <label htmlFor="Black" className="ml-4">$0 - $50</label>
             </div>
             {/* Blue */}
             <div className="ml-4">
-                <input onChange={handlePriceChange} value={"blue"} id="Blue" type="radio" name="price" />
+                <input onChange={handlePriceChange} value={100} id="Blue" type="radio" name="price" />
                 <label htmlFor="Blue" className="ml-4">$50 - $100</label>
             </div>
             {/* Red */}
             <div className="ml-4">
-                <input onChange={handlePriceChange} value={"red"} id="Red" type="radio" name="price" />
+                <input onChange={handlePriceChange} value={150} id="Red" type="radio" name="price" />
                 <label htmlFor="Red" className="ml-4">$100 - $150</label>
             </div>
             {/*  */}
             <div className="ml-4">
-                <input onChange={handlePriceChange} value={"green"} id="Green" type="radio" name="price" />
+                <input onChange={handlePriceChange} value={150} id="Green" type="radio" name="price" />
                 <label htmlFor="Green" className="ml-4">Over $150</label>
             </div>
         </div>
