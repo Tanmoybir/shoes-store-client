@@ -13,7 +13,7 @@ const ShoesCard = ({ shoe }) => {
                     <img className="w-60 h-60" src={img} alt="" />
                 </div>
                 <div className={`border flex justify-center items-center ${isHovered ? 'visible' : 'invisible'}`}>
-                    <Link to={`/shoeDetails/:${_id}`}><FaRegEye className={`my-3 text-2xl`} /></Link>
+                    <Link to={`/shoeDetails/${_id}`}><FaRegEye className={`my-3 text-2xl`} /></Link>
                 </div>
                 <div className="text-center border border-green-600">
                     <h1 className="text-2xl font-semibold hover:text-red-300">{title}</h1>
