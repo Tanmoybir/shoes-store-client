@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Container from "../../../components/Container/Container";
 import useAxios from "../../../hooks/useAxios";
 import { useParams } from "react-router-dom";
@@ -12,6 +12,14 @@ const Details = () => {
         queryKey: ['shoes'],
         queryFn: async () => {
             const res = await axios.get(`/shoes/${id}`)
+            return res
+        }
+    })
+
+    const {mutate} = useMutation({
+        mutationKey:['shoes'],
+        mutationFn:async (myCart) => {
+            const res = await axios.post('/user/myCart',myCart)
             return res
         }
     })
@@ -32,7 +40,12 @@ const Details = () => {
                         <p className="text-xl font-medium my-4">Company: {details?.data?.company}</p>
                         <p className="text-2xl font-medium my-4">Price: ${details?.data?.newPrice}</p>
                         <p className="text-xl font-medium my-4">Rating: {details?.data?.star_rating}</p>
-                        <div className="bg-blue-400 px-2 py-3 w-40 border border-red-300 rounded-md flex justify-center items-center gap-2">
+                        <div onClick={() => mutate({title:details?.data?.title,
+                            category:details?.data?.category,
+                            company:details?.data?.company,
+                            price:details?.data?.newPrice
+                        })} 
+                            className="bg-blue-400 px-2 py-3 w-40 border border-red-300 rounded-md flex justify-center items-center gap-2">
                             <BsCart4 className="text-2xl"/>
                             <button className="" >Add MyCart</button>
                         </div>
