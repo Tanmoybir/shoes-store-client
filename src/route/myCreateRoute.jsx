@@ -5,6 +5,8 @@ import About from "../pages/About/About";
 import Shop from "../pages/Shop/Shop";
 import Details from "../pages/Shop/Details/Details";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Register from "../pages/Register/Register";
+import Login from "../pages/Login/Login";
 
 const myCreateRoute = createBrowserRouter([
     {
@@ -29,7 +31,16 @@ const myCreateRoute = createBrowserRouter([
                 element:<Details/>
             }
         ]
-    }
+    },
+    {
+        path:'/login',
+        element:<Login/>
+    },
+    {
+        path:'/register',
+        element:<Register/>
+    },
+    
 ])
 
 export default myCreateRoute;
