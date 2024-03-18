@@ -7,12 +7,13 @@ const Register = () => {
     const [image, setImage] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const {userCreate} = useAuth()
+    const {userCreate,profile} = useAuth()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         try{
             userCreate(email,password)
+            profile(userName,image)
         }
         catch(error){
             console.log(error);
