@@ -1,15 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
     const [userName, setUserName] = useState('')
     const [image, setImage] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const {userCreate} = useAuth()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(userName, image, email, password);
+        try{
+            userCreate(email,password)
+        }
+        catch(error){
+            console.log(error);
+        }
     }
     return (
         <div>
